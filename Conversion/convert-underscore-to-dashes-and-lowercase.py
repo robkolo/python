@@ -1,6 +1,6 @@
 import os
 
-directory = r'/path/goes/here'
+directory = r'/Users/rkolodzi/Code/CloudFormationBackup'
 
 for root, dirs, files in os.walk(directory):
     print(f"root: {root}")
@@ -8,12 +8,12 @@ for root, dirs, files in os.walk(directory):
     print(f"files: {files}")
 
     for current_filename in files:
-        new_filename = current_filename.replace('_', '-').lower()
+        lc_filename = current_filename.lower().replace('_', '-')
 
         print(f"current filename: {current_filename}")
-        print(f"    new filename: {new_filename}")
+        print(f"new filename: {lc_filename}")
 
         os.rename(
             os.path.join(root, current_filename), 
-            os.path.join(root, new_filename)
+            os.path.join(root, lc_filename)
         )
